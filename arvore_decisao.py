@@ -125,7 +125,7 @@ def execute(dataset):
     X = subdivide(dataset, 'treinamento')
     y = subdivide(dataset, 'label treinamento')
     X = dropLabel(X)
-    tree = DecisionTree(max_depth=1)
+    tree = DecisionTree(max_depth=1000)
     tree.fit(X, np.array(y))
     X = subdivide(dataset, 'teste')
     y = subdivide(dataset, 'label teste')
