@@ -38,6 +38,7 @@ def execute(dataset):
     X_train = dropLabel(X_train)
     X_test = dropLabel(X_test)
     gnb = GaussianNB()
-    y_pred = gnb.fit(X_train, y_train).predict(X_test)
-    print("De %d pacientes, o naive bayes preveu corretamente: %d"
-        % (len(X_test), (y_test != y_pred).sum()))
+    preds = gnb.fit(X_train, y_train).predict(X_test)
+    return (y_test, preds)
+    #print("De %d pacientes, o naive bayes preveu corretamente: %d"
+        #% (len(X_test), (y_test != preds).sum()))

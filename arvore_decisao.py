@@ -131,5 +131,6 @@ def execute(dataset):
     y = subdivide(dataset, 'label teste')
     X = dropLabel(X)
     preds = tree.predict(X)
-    corretas = np.sum(np.array(preds).astype(int) == np.array(y).astype(int))
-    print("De 1398 pacientes, a árvore de decisão preveu corretamente:", corretas)
+    #corretas = np.sum(np.array(preds).astype(int) == np.array(y).astype(int))
+    #print("De 1398 pacientes, a árvore de decisão preveu corretamente:", corretas)
+    return (y, preds)

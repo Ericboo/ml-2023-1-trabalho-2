@@ -4,6 +4,8 @@ import pandas
 import naive_bayes as nb
 import arvore_decisao as ad
 import knn
+from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score
+
 #Abre o arquivo
 df = pandas.read_excel('./Dataset.xlsx')
 
@@ -33,11 +35,23 @@ for i in range(len(dataset)):
 keys = dataset[0].keys()
 dataset = [[d[key] for key in keys] for d in dataset]
 
-#naive bayes
-nb.execute(dataset)
+print('\nRESULTADO DA EXECUÇÃO DO KNN:')
+result = knn.execute(dataset)
+print('Matriz de Confusão:\n', confusion_matrix(result[0], result[1]))
+print('Acurácia:', accuracy_score(result[0], result[1]))
+print('Precisão:', precision_score(result[0], result[1], zero_division=1))
+print('Revocação:', recall_score(result[0], result[1]))
 
-#knn
-knn.execute(dataset)
+print('\nRESULTADO DA EXECUÇÃO DO NAIVE BAYES:')
+result = nb.execute(dataset)
+print('Matriz de Confusão:\n', confusion_matrix(result[0], result[1]))
+print('Acurácia:', accuracy_score(result[0], result[1]))
+print('Precisão:', precision_score(result[0], result[1], zero_division=1))
+print('Revocação:', recall_score(result[0], result[1]))
 
-#Árvore de decisão
-ad.execute(dataset)
+print('\nRESULTADO DA EXECUÇÃO DA ÁRVORE DE DECISÃO:')
+result = ad.execute(dataset)
+print('Matriz de Confusão:\n', confusion_matrix(result[0], result[1]))
+print('Acurácia:', accuracy_score(result[0], result[1]))
+print('Precisão:', precision_score(result[0], result[1], zero_division=0))
+print('Revocação:', recall_score(result[0], result[1]))

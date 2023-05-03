@@ -73,6 +73,6 @@ def execute(dataset):
     X_train = dropLabel(X_train)
     X_test = dropLabel(X_test)
     result = knn(X_train, y_train, X_test, k = 10) #4=791 5=771 6=824 7=822 8=901 9=901 10=911
-    corretas = np.sum(np.array(result).astype(int) == np.array(y_test).astype(int))
-
-    print("De 1398 pacientes, o knn preveu corretamente:", corretas)
+    #corretas = np.sum(np.array(result).astype(int) == np.array(y_test).astype(int))
+    return (y_test, result)
+    #print("De 1398 pacientes, o knn preveu corretamente:", corretas)
