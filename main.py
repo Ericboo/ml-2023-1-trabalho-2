@@ -2,6 +2,7 @@
 
 import pandas
 import naive_bayes as nb
+import arvore_decisao as ad
 import knn
 #Abre o arquivo
 df = pandas.read_excel('./Dataset.xlsx')
@@ -37,3 +38,6 @@ nb.execute(dataset)
 
 #knn
 knn.execute(dataset)
+
+#Árvore de decisão
+ad.execute(dataset)

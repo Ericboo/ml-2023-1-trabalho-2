@@ -2,8 +2,8 @@ from sklearn.neighbors import NearestNeighbors
 import numpy as np
 
 def dropLabel(dataset):
-    aux = [row[:1] + row[2:] for row in dataset]
-    new_dataset = [row for row in aux]
+    new_dataset = np.delete(dataset, 1, axis=1)
+    new_dataset = np.array(new_dataset).astype(int)
     return new_dataset
 
 def subdivide(dataset, divisao):
