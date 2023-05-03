@@ -3,8 +3,8 @@ from sklearn.naive_bayes import GaussianNB
 
 def dropLabel(dataset):
     aux = [row[:1] + row[2:] for row in dataset]
-    dataset = [row for row in aux]
-    return dataset
+    new_dataset = [row for row in aux]
+    return new_dataset
 
 def subdivide(dataset, divisao):
     if divisao == 'treinamento':
@@ -39,5 +39,5 @@ def execute(dataset):
     X_test = dropLabel(X_test)
     gnb = GaussianNB()
     y_pred = gnb.fit(X_train, y_train).predict(X_test)
-    print("Number of mislabeled points out of a total %d points : %d"
+    print("De %d pacientes, o naive bayes preveu corretamente: %d"
         % (len(X_test), (y_test != y_pred).sum()))

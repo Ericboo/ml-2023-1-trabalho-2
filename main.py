@@ -1,10 +1,8 @@
-#TRABALHO 1 DE APRENDIZADO DE MÁQUINA 2023.1 POR ERIC JONAI COSTA SOUZA
+#TRABALHO 2 DE APRENDIZADO DE MÁQUINA 2023.1 POR ERIC JONAI COSTA SOUZA
 
 import pandas
-import numpy as np
-from statistics import mode
 import naive_bayes as nb
-
+import knn
 #Abre o arquivo
 df = pandas.read_excel('./Dataset.xlsx')
 
@@ -36,3 +34,6 @@ dataset = [[d[key] for key in keys] for d in dataset]
 
 #naive bayes
 nb.execute(dataset)
+
+#knn
+knn.execute(dataset)
